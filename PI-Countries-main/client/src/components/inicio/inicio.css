@@ -1,0 +1,25 @@
+
+.inicio{
+  display: flex;
+  justify-content: center;
+  background-image: url(https://www.elindependiente.com/wp-content/uploads/2020/08/international-space-station-1176518_1920-1440x808.jpg);
+  background-position: center center;
+  background-size:cover;
+  background-attachment: fixed;
+  position: fixed;
+  width: 110%;
+  height: 110%;
+}
+  .boton{
+      color: white;
+      background-color: rgba(13, 13, 14, 0.836);
+      cursor:pointer; cursor: hand;
+      width: 100px;
+      height: 50px;
+      margin-top: 250%;
+      font-size: 15px;
+      border-radius: 10px;
+      transition: box-shadow 0.2s ease-in-out;
+    }
+
+  
