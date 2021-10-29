@@ -3,61 +3,64 @@ const router = ('.');
 const {Country, Activity} = require ('../db')
 const server = require('express').Router()
 
+const getApiInfo = async () =>{
+    const { data } = await axios('https://restcountries.com/v3/all');
+    const api = await data.map(country => { 
+        
+        return {
+           id: country.cca3,
+           name: country.name.common,
+           flag: country.flags[0],
+           continent: country.continents[0],
+           capital: country.capital?.[0] ,
+        //    subregion: country.subregion, 
+           area: country.area,
+           poblation: country.population,
+        }
+    });
+    const result = await Country.bulkCreate(api)
+    return result;
+}
+const getDbInfo = async() => { 
+    return await Country.findAll({
+        include: {
+            model: Activity,
+            attribute: ['name', 'difficulty', 'duration', 'season'],
+            through: {
+                attributes: []
+            }
+        }
+    })
+}
+
 
 server.get("/countries/:id", async function (req, res){
     const id = req.params.id.toUpperCase()
-    if (id){
-        try{
-            const resulApi = await axios.get("https://restcountries.com/v3/all");
-            const result = resulApi.data.filter(e => e.cca3 == id)
-            console.log(result)
-            result.length === 0 ? res.send('id no encontrado'): res.send(result)
-
-        }
-        catch(err){
-            res.status(400).send('no se encontro el id')
-        }
-    }
-    else {
-        try{
-            const resultDb = await Country.findbyPk(id, {include: [Activity]});
-            
-            res.send(resultDb)
-        }
-        catch(err){
-            res.status(400).send('id no encontrado')
-        }
+    console.log(id)
+    const allCountries = await getDbInfo();
+    if ( id ) {
+        const idCountries = allCountries.filter( i => i.id === id )
+        idCountries.length?
+        res.status(200).send(idCountries) :
+        res.status(404).send('id no valido')
     }
 })
 
 server.get("/countries", async function (req, res){
     const {name} = req.query;
-    var ax = await axios('https://restcountries.com/v3/all');
-    var paises = ax.data;
-    var pai = paises.map((r) => {
-        return{
-            name : r.name.common,
-            continent : r.subregion,
-            imagen: r.flags[0]
-        }
-    })
-    // console.log(pai)
-    var dbCountry = await Country.findAll({include : [Activity]})
-    var dd = [...dbCountry, ...pai]
-    if(name){
-        const list = dd.filter(e => e.name.toUpperCase().includes(name.toUpperCase()))
-        try{
-            if(list.length){
-                res.json(list)
-            } 
-        }
-        catch (err){
-            res.status(400).send('no existe el nombre')
-        }
-    }
-    else {
-        res.status(200).json(dd)
-    }
+    let countries;
+    const countryDB = await Country.count(); //aqui cuento los registros de countries
+    countries = countryDB === 0 ?
+    await getApiInfo() :// asi que si la db esta bacia llamo a la api
+    await getDbInfo() // si no saco de la bd 
+if ( name ) {
+    const byName = countries.filter(n => n.name.toLowerCase().includes(name.toLowerCase()));
+    byName.length ? 
+    res.status(200).send(byName) :
+    res.status(404).send('no se encontro ningun pais')
+}  else {
+   res.status(200).send(countries)  
+}
 })
 server.post("/activity", async function (req,res){
     const {

@@ -1,0 +1,12 @@
+.nav{
+    background-color:	black;
+    display: flex;
+    padding: 6px;
+    margin:6px;
+    justify-content: space-between;
+    background-position: center center;
+    background-size:cover;
+    background-attachment: fixed;
+    width: 98%;
+    height: 98%;
+}

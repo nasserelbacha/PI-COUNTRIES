@@ -1,11 +1,14 @@
 import React from "react";
-
-export default function Card({name, imagen, continent}) {
+import './card.css'
+import { Link } from 'react-router-dom'
+export default function Card({ id,name, flag, continent}) {
     return(
-        <div>
-            <h4> {name} </h4>
-            <h6> {continent} </h6>
-            <img src={imagen} alt="imagen no encontrada" width='150px' height='200' />
+        <div className='card'>
+            <Link className='link' to = {`/detail/${id}`}>
+            <h4 className='name'> {name} </h4>
+            <h5 className='name'> {continent} </h5>
+            <img src={flag} alt="imagen no encontrada" width='145px' height='145px' className='image' />
+            </Link>        
         </div>
     )
 }
