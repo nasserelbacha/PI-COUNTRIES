@@ -4,11 +4,11 @@ export function getCountries(){
     return async function(dispatch){
         try{
         const  r = await axios('http://localhost:3001/countries');
-        // console.log(r.data)
+        // //console.log(r.data)
         return dispatch({type:'GET_COUNTRIES', payload: r.data})
         }
         catch(err){
-            console.log(err)
+            //console.log(err)
         }
     }
 }
@@ -16,11 +16,11 @@ export function getCountriesDetails(id){
     return async function (dispatch){
         try{
             const r = await axios (`http://localhost:3001/countries/${id}`) 
-            console.log(r.data)
+           
             return dispatch({type: 'GET_COUNTRIES_DETAIL', payload: r.data})
         }
         catch (err){
-            console.log('mal id')
+            //console.log('mal id')
         }
     }
 }
@@ -31,18 +31,20 @@ export function getCountriesName (name){
             return dispatch({type: 'GET_COUNTRIES_NAME', payload: r.data})
         }
         catch(err){
-            console.log('no existe el nombre')
+            //console.log('no existe el nombre')
         }
     }
 }
-export function addActivity (){
+export function addActivity (activity){
     return async function (dispatch){
+        //console.log("entrooooooooooooooooo", activity)
         try{
-            const r = await axios.post('http://localhost:3001/activity')
-            return dispatch({type:'ADD_ACTIVITY', payload: r.data})
+            const re = await axios.post('http://localhost:3001/activity', activity)
+            return dispatch({type:'ADD_ACTIVITY', payload: re.data})
         }
         catch(err){
-            console.log(err)
+            //console.log(err)
+            //console.log("entrooooooooooooooooo catch")
         }
     }
 }
@@ -54,20 +56,18 @@ export function getActivity (activity){
             return dispatch({type:'GET_ACTIVITY', payload:r.data})
         }
         catch(err){
-            console.log(err)
+            //console.log(err)
         }
     }
 }
 
-export function getContinents (subregion){
+export function getContinents (payload){
     return async function(dispatch){
         try{
-            const r = await axios('http://localhost:3001/countries')
-            r.data = r.data.filter(e=> e.subregion === subregion)
-            return dispatch({type:'GET_CONTINENTS', payload:r.data})
+         return dispatch({ type:'GET_CONTINENTS', payload})
         }
         catch(err){
-        console.log(err)
+        //console.log(err)
         }
     }
 }

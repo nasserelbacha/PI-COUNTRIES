@@ -1,10 +1,11 @@
 import { compareAz, compareZa, MayPoblacion, MenPoblacion } from "./helpers/helpers"
 
 const initialState = {
- countries : [],
- countriesApi: [],
+ countries :[],
+ countriesApi:[],
  loading: false,
- detail: []
+ detail:[],
+ continent:[]
 }
 const rootReducer = (state= initialState, {type, payload}) => {
     console.log(payload)
@@ -18,7 +19,7 @@ const rootReducer = (state= initialState, {type, payload}) => {
         case 'GET_COUNTRIES_NAME':
             return{
                 ...state,
-                countries: payload
+                countriesApi: payload
             }
             case 'ORDER_AZ':
                 return{
@@ -55,9 +56,23 @@ const rootReducer = (state= initialState, {type, payload}) => {
                 return{
                     ...state,
                     detail: payload
-                }    
-            default:
-                return state;
-    }
-}
+                }
+            case 'GET_CONTINENTS':
+            const allcountries = state.countriesApi
+            const filtro = payload === 'all' ? 
+            allcountries:
+            allcountries.filter(c => c.continent === payload)
+            return{
+                    ...state,
+                    countriesApi: filtro
+                }
+             case 'ADD_ACTIVITY':
+                 return{
+                     ...state, 
+                 }   
+                
+                default:
+                    return state;
+                }
+            }
 export default rootReducer;

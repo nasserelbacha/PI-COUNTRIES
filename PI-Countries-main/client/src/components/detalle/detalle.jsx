@@ -15,14 +15,14 @@ export default function Detalle (props){
 	    dispatch(getCountriesDetails(id));
 	}, [dispatch], id);
     return(
-        <div className="detail">
+        <div >
         {countriesDetail.map(e => (
-         <div>
+         <div className="detail">
          <h2  className="card-title"> Name: {e.name}</h2>
          <div className='detail-img'>
               <img src={e.flag} className='imagen'  alt="" />
          </div>
-         <div className='container'>
+         <div className='datos'>
              <div className='container'>
                  <h4> Continent: {e.continent}</h4>
              </div>
@@ -36,14 +36,14 @@ export default function Detalle (props){
                  <h4> Poblation:  {e.poblation}</h4>
              </div>
              </div>
-     </div>
-         ))}
- <div className='btn'>
+             <div className='btn'>
      <Link to='/home'>
          <button className='btn-back'>Back</button> 
      </Link>
      
  </div>
+     </div>
+         ))}
 
  </div>
     )

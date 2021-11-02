@@ -70,8 +70,10 @@ server.post("/activity", async function (req,res){
         difficulty, 
         idCountry
     } = req.body;
-    // console.log(req.body)
-    try{
+    console.log("***********************************")
+    console.log( req.body)
+     console.log("***********************************")
+     try{
         const actCreada = await Activity.create({
             name,
             season,
@@ -86,7 +88,7 @@ server.post("/activity", async function (req,res){
         
     }
     catch(err){
-        console.log('no se creo la actividad')
+        console.log(err)
     }
 })
 

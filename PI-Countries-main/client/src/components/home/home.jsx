@@ -9,7 +9,7 @@ import Paginado from '../Paginado/Paginado'
 export const Home = () => {
     const dispatch = useDispatch()
     const countries = useSelector((state) => state.countriesApi)
-    console.log(countries)
+    // console.log(countries)
     const changeLoading = useSelector(state => state.loading)
     const [currentPage, setCurrentPage] = useState(1);
     const counPerPage = 9

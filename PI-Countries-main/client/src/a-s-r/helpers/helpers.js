@@ -18,10 +18,10 @@ export function compareZa( a, b){
     return 0;
 }
 export function MayPoblacion (a,b){
-    if (a.poblacion > b.poblacion){
+    if (a.poblation > b.poblation){
         return -1
     }
-    if (a.poblacion < b.poblacion){
+    if (a.poblation < b.poblation){
         return 1
     }
     return 0

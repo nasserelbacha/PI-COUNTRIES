@@ -9,7 +9,6 @@ export default function Search(){
         dispatch(getCountriesName(name))
     }, [dispatch, name])
     const handleChange = (e) => {
-        
         setName(e.target.value);
     };
     const handleSubmit = (e) => {

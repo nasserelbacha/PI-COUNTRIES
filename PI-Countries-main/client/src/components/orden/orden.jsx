@@ -8,7 +8,7 @@ export default function Orden(){
     const[currentPage, setCurrentPage] = useState(1)
     const [order, setOrder] = useState('')
     const countries = useSelector((state) => state.countriesApi)
-    console.log(countries)
+    // console.log(countries)
     function handleChange(e) {
         e.preventDefault()
         dispatch(filterName(e.target.value));

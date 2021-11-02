@@ -1,0 +1,70 @@
+  .post{border:1px solid white;
+  height:500px;
+  width:50%;
+  margin: 30px auto;
+  background-color: black;
+  box-shadow: 0 6rem 6rem 0 rgba(0, 0, 5, 5);
+  background-position: center center;
+  background-size:cover;
+  background-attachment: fixed;
+  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+  text-align: center;
+  }
+  h2{
+      color: aliceblue;
+  }
+  .container-post{
+    margin-top:20px;
+      width:100%;
+      margin:auto;
+      display:flex;
+      flex-direction:column;
+      color: white;
+        margin:5px 0 0 0;
+        display:flex;
+          margin-right:30px;
+          list-style:none;
+          font-weight:bold;
+        
+      }
+      label{
+        margin-bottom:4px;
+        font-weight:bold;
+        margin-top:12px;
+      }
+      .input{
+        outline:none;
+        height:30px;
+      }
+      .btn-submit{
+        width:25%;
+        margin:auto;
+        margin-top:10px;
+        padding:10px;
+        border-radius:7px;
+        outline:none;
+        background-color:white;
+        color:black;
+        cursor: pointer;
+        
+      }
+      
+      .btn-atras{
+        width:25%;
+        margin:auto;
+        margin-top:10px;
+        padding:10px;
+        border-radius:7px;
+        outline:none;
+        background-color:rgb(255, 255, 255);
+        color:black;
+        cursor: pointer;
+        }
+      
+.pais-seleccionado{
+  color: aliceblue;
+  list-style:none;
+}
+.X{
+  cursor: pointer;
+}
