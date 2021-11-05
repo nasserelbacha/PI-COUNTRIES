@@ -32,6 +32,11 @@ const getDbInfo = async() => {
         }
     })
 }
+const ActInfo = async() => {
+    return await Activity.findAll({
+        include: Country
+    })
+}
 
 
 server.get("/countries/:id", async function (req, res){
@@ -49,12 +54,12 @@ server.get("/countries/:id", async function (req, res){
 server.get("/countries", async function (req, res){
     const {name} = req.query;
     let countries;
-    const countryDB = await Country.count(); //aqui cuento los registros de countries
+    const countryDB = await Country.count(); 
     countries = countryDB === 0 ?
-    await getApiInfo() :// asi que si la db esta bacia llamo a la api
-    await getDbInfo() // si no saco de la bd 
+    await getApiInfo() :
+    await getDbInfo() 
 if ( name ) {
-    const byName = countries.filter(n => n.name.toLowerCase().includes(name.toLowerCase()));
+    const byName = countries.filter(n => n.id.toLowerCase().includes(name.toLowerCase()));
     byName.length ? 
     res.status(200).send(byName) :
     res.status(404).send('no se encontro ningun pais')
@@ -70,26 +75,33 @@ server.post("/activity", async function (req,res){
         difficulty, 
         idCountry
     } = req.body;
-    console.log("***********************************")
-    console.log( req.body)
-     console.log("***********************************")
+
      try{
         const actCreada = await Activity.create({
             name,
             season,
             duration,
-            difficulty
+            difficulty,
         })
-        console.log(actCreada)
+
         if(idCountry){
          actCreada.addCountry(idCountry)
         }
-        res.send('actividad creada') 
+        res.send(actCreada) 
         
     }
     catch(err){
         console.log(err)
     }
 })
+
+server.get('/activity', async function (req, res){
+    const act = await ActInfo()
+    console.log(act)
+    res.status(200).send(act)
+}) 
+ 
+
+
 
 module.exports = server

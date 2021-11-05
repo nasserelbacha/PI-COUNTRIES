@@ -37,26 +37,40 @@ export function getCountriesName (name){
 }
 export function addActivity (activity){
     return async function (dispatch){
-        //console.log("entrooooooooooooooooo", activity)
+        
         try{
             const re = await axios.post('http://localhost:3001/activity', activity)
             return dispatch({type:'ADD_ACTIVITY', payload: re.data})
         }
         catch(err){
             //console.log(err)
-            //console.log("entrooooooooooooooooo catch")
+           
         }
     }
 }
-export function getActivity (activity){
+export  function getActivity (){ 
     return async function (dispatch){
-        try{
-            const r = await axios('http://localhost:3001/activity')
-            r.data= r.data.filter(data => data.Activity.filter(a => a.name === activity).length)
-            return dispatch({type:'GET_ACTIVITY', payload:r.data})
+        let re
+        try{ 
+            re = await axios.get('http://localhost:3001/activity')
+            
         }
         catch(err){
-            //console.log(err)
+            console.log(err)
+        }
+        if(re){
+            re = await re.data
+            return dispatch({type:'GET_ACTIVITY', payload: re })
+        }
+    }
+}
+export function filterActivity (payload){
+    return async function (dispatch){
+        try{
+            return dispatch({type:'FILTER_ACTIVITY', payload})
+        }
+        catch(err){
+            console.log('filterActivity ERROR____:',err)
         }
     }
 }
@@ -64,7 +78,7 @@ export function getActivity (activity){
 export function getContinents (payload){
     return async function(dispatch){
         try{
-         return dispatch({ type:'GET_CONTINENTS', payload})
+         return dispatch({type:'GET_CONTINENTS', payload})
         }
         catch(err){
         //console.log(err)

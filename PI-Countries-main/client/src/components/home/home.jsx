@@ -3,7 +3,7 @@ import Card from '../card/card'
 import { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import './home.css'
-import { getCountries } from '../../a-s-r/actions';
+import { getActivity, getCountries, filterActivity } from '../../a-s-r/actions';
 import Paginado from '../Paginado/Paginado'
 
 export const Home = () => {
@@ -21,9 +21,12 @@ export const Home = () => {
     useEffect (() => {
       if(countries.length === 0 && !changeLoading){
         dispatch(getCountries())
-      }    
+        dispatch(getActivity())
         
+      }    
+      
     })
+
 
     return(
         

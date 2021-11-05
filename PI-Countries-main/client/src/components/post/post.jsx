@@ -94,7 +94,7 @@ function handleSelect(e) {
                     </select> 
                 </label>
                 <label htmlFor="duration" onChange={handleChange}>
-                    <input type="number" placeholder="duration" name="duration" className="input"  value={activities.duration }   /> 
+                    <input type="number" placeholder="duration in days.." name="duration" className="input"  value={activities.duration }   /> 
                 </label>
                <div>
                </div>
@@ -107,8 +107,8 @@ function handleSelect(e) {
                              {activities.idCountry.map(e => (<li key={e}> {e} <button className="X" onClick={()=> deleteId(e)} > X </button> </li> ) )} 
                         </ul> : null }
                <div>
-                <Link to='/home'>
                     <button type="submit" className="btn-submit">Add New Activity</button>
+                <Link to='/home'>
                     <button className='btn-atras'>Back</button> 
                 </Link>
                 </div>

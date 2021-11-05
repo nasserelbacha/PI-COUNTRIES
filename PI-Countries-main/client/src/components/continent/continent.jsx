@@ -1,10 +1,8 @@
 import React from "react";
-import { useEffect } from "react";
-import {useSelector, useDispatch} from 'react-redux'
-import { getContinents, getCountries } from "../../a-s-r/actions";
+import {useDispatch} from 'react-redux'
+import { getContinents } from "../../a-s-r/actions";
 export default function Continent(){
     const dispatch = useDispatch();
-    const continents = useSelector(state => state.continent)
     function handleChange(e) {
         dispatch(getContinents(e.target.value))
     }

@@ -5,10 +5,10 @@ const initialState = {
  countriesApi:[],
  loading: false,
  detail:[],
- continent:[]
+ continent:[],
+ actividad: []
 }
 const rootReducer = (state= initialState, {type, payload}) => {
-    console.log(payload)
     switch(type) {
         case 'GET_COUNTRIES':
             return{
@@ -57,20 +57,39 @@ const rootReducer = (state= initialState, {type, payload}) => {
                     ...state,
                     detail: payload
                 }
+
             case 'GET_CONTINENTS':
-            const allcountries = state.countriesApi
-            const filtro = payload === 'all' ? 
-            allcountries:
-            allcountries.filter(c => c.continent === payload)
-            return{
-                    ...state,
-                    countriesApi: filtro
+                const allcountries = state.countriesApi
+                console.log("GET_CONTINENTS - allcountries****************: " , allcountries)  
+                const filtro = payload === 'all' ? 
+                allcountries:
+                allcountries.filter(c => c.continent === payload)
+                return{
+                        ...state,
+                        countriesApi: filtro
                 }
              case 'ADD_ACTIVITY':
                  return{
                      ...state, 
-                 }   
+                     actividad: payload
+                    }   
+            case 'GET_ACTIVITY':
+                 return{
+                         ...state,
+                        actividad: payload
+                    }  
+
+            case 'FILTER_ACTIVITY':
+                const activitiesbycountries = state.actividad
+                console.log("FILTER_ACTIVITY - activitiesbycountries****************: " , activitiesbycountries)
                 
+                const filt =  activitiesbycountries.filter(a=> a.name === payload)[0].countries.map(e => e)
+                console.log("FILT_____:", filt)
+            return{
+                    ...state,
+                    countriesApi: filt
+                }
+
                 default:
                     return state;
                 }
