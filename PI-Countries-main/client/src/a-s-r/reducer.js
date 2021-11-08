@@ -59,9 +59,8 @@ const rootReducer = (state= initialState, {type, payload}) => {
                 }
 
             case 'GET_CONTINENTS':
-                const allcountries = state.countriesApi
-                console.log("GET_CONTINENTS - allcountries****************: " , allcountries)  
-                const filtro = payload === 'all' ? 
+                const allcountries = state.countries
+                const filtro = payload === 'All' ? 
                 allcountries:
                 allcountries.filter(c => c.continent === payload)
                 return{
@@ -81,9 +80,10 @@ const rootReducer = (state= initialState, {type, payload}) => {
 
             case 'FILTER_ACTIVITY':
                 const activitiesbycountries = state.actividad
+                const countriesAll = state.countries
                 console.log("FILTER_ACTIVITY - activitiesbycountries****************: " , activitiesbycountries)
                 
-                const filt =  activitiesbycountries.filter(a=> a.name === payload)[0].countries.map(e => e)
+                const filt = payload === 'todos' ? countriesAll : activitiesbycountries.filter(a=> a.name === payload)[0].countries.map(e => e)
                 console.log("FILT_____:", filt)
             return{
                     ...state,

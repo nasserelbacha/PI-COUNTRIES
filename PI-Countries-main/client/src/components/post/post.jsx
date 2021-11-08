@@ -15,7 +15,9 @@ export default function Post(){
   if(!paises.length){
       dispatch(getCountries())
   }
-    const [error, setError] = useState('')
+    const [err, setError] = useState( /*{
+       errDuration: false
+    } /*/ "")
 
     const [activities, setActivities] = useState({
         name: '',
@@ -50,13 +52,10 @@ function handleSelect(e) {
         })
         
     }
-    
-    useEffect(() => {
-        var validate = validater(activities)
-        setError(validate)
-    }, [activities]) 
- 
-    
+    useEffect (() => {
+        setError( validater(activities))
+    }, [])
+     
     const deleteId = id =>{
     
         let borrar  = activities.idCountry.filter(e => e !== id)
@@ -73,34 +72,33 @@ function handleSelect(e) {
             <h2> Create your Activity! </h2>
             <form className="container-post" onSubmit ={handleSubmit}>
                 <label htmlFor="countries">
-                    <select name="countries" id="countries" onChange={handleSelect}>
+                    <select name="countries" id="countries" onChange={handleSelect} required>
                         <option value="" > Select </option>
                         {paises.map(e => ( <option value={e.id}> {e.name} {e.id} </option>) ) }
                     </select>
                 </label>
                 <label htmlFor="name"  onChange={handleChange}>
-                    <input type="text" placeholder="name" name="name" className="input" value={activities.name}  />
+                    <input type="text" placeholder="name" name="name" className="input" value={activities.name} required/>
                 </label>
                 <label htmlFor="season">
-                    <select type="text" name="season"  onChange={handleChange}>
+                    <select type="text" name="season"  onChange={handleChange} required>
                         <option value="" > Season </option>
                         { ['Winter', 'Spring', 'Autumn', 'Summer' ].map(e => ( <option value={e}>  {e} </option> )) }
                     </select> 
                 </label>
                 <label htmlFor="difficulty">
-                    <select type="text" name="difficulty" onChange={handleChange}>
+                    <select type="text" name="difficulty" onChange={handleChange} required>
                         <option value=""  > Difficulty </option>
                         { [1, 2, 3, 4, 5 ].map(e => ( <option value={e}> {e} </option> )) }
                     </select> 
                 </label>
                 <label htmlFor="duration" onChange={handleChange}>
-                    <input type="number" placeholder="duration in days.." name="duration" className="input"  value={activities.duration }   /> 
+                    <input type="time" placeholder="duration in hours.." name="duration" className="input"  value={activities.duration }  required /> 
                 </label>
-               <div>
-               </div>
-                    <div>
-                        <span className={error} >{error}</span>  
-                    </div>
+
+                    { <div>
+                        <span >{err}</span>  
+                    </div> }
                   
                 {activities.idCountry.length > 0 ?    
                         <ul className="pais-seleccionado" onChange={handleSelect}>  

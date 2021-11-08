@@ -17,21 +17,15 @@ export default function Search(){
             dispatch(getCountriesName(name));
         }
     };
-    function buscarNombre(name){
-        getCountriesName(name);
-    }
-
     return(
-        
-        <form onSubmit={(e) => handleSubmit(e)}>
-        <input
+        <form  onSubmit={(e) => handleSubmit(e)}>
+        <input 
             type="text"
             placeholder="Search your countrie.."
             autoComplete="off"
             value={name} 
             onChange={(e) => handleChange(e)}
         />
-        <button onClick= {() => buscarNombre(name)}> Search </button>
     </form>
     )
 }

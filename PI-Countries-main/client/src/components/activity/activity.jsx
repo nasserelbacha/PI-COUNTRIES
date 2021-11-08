@@ -7,12 +7,12 @@ export default function Activity (){
     const dispatch = useDispatch()
     function handleChange(e) { 
         dispatch(filterActivity(e.target.value))
-        //console.log(dispatch(filterActivity(e.target.value)))
+        
     }
     return(
         <select name="" id="" onChange={(e) => handleChange(e)} >
-            <option > Activities</option>
-            { activity && activity?.map((a, index)=>(
+            <option value="todos" > Activities</option>
+            { activity?.length && activity.map((a, index)=>(
                         <option key={index} value={a.name}>{a.name}</option>
                     ))
                     } 

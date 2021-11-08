@@ -19,18 +19,20 @@ export const Home = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber )
     
     useEffect (() => {
-      if(countries.length === 0 && !changeLoading){
         dispatch(getCountries())
         dispatch(getActivity())
-        
-      }    
+          
       
-    })
+    }, [])
 
 
     return(
         
-        <div>
+        <div className="home">
+             <Paginado 
+        counPerPage = {counPerPage}
+        paginate = {paginate}
+        />
         <div className="container">
         {
          currentCountries?.map (e => {
@@ -41,10 +43,7 @@ export const Home = () => {
          
         }
          </div>
-        <Paginado 
-        counPerPage = {counPerPage}
-        paginate = {paginate}
-        />
+     
        
         </div>
         

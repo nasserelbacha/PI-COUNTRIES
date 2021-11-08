@@ -28,10 +28,10 @@ export function MayPoblacion (a,b){
 }
 
 export function MenPoblacion (a,b){
-    if (a.poblacion > b.poblacion){
+    if (a.poblation > b.poblation){
         return 1
        }
-       if (a.poblacion < b.poblacion){
+       if (a.poblation < b.poblation){
            return -1
     }
     return 0

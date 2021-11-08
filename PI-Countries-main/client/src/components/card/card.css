@@ -1,12 +1,13 @@
 .card{
     margin: 20px;
     width: 18rem;
-    margin-top: 0px !important;
-    padding-top: 0px !important;
+    margin-top: 0px;
+    padding-top: 0px;
     border: 1px solid black;
 }
 .image{
     margin-left: 25%;
+    height: 100px;
    }
 .name{
      text-align: center;
