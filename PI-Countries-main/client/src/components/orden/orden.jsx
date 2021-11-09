@@ -1,7 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import {useSelector, useDispatch} from 'react-redux'
-import { orderAz, orderZa, poblMayor, poblMenor, getCountries, filterName } from "../../a-s-r/actions";
+import { orderAz, orderZa, poblMayor, poblMenor, getCountries, filterName, areaMayor } from "../../a-s-r/actions";
+import { MayArea } from "../../a-s-r/helpers/helpers";
 
 export default function Orden(){
     const dispatch = useDispatch()
@@ -27,11 +28,12 @@ export default function Orden(){
                 dispatch(orderZa());
             }
         else if (e.target.value === 'MAYOR_POBLACION') {
-                dispatch(poblMayor(countries));
+                dispatch(poblMayor());
             }
         else if (e.target.value === 'MENOR_POBLACION') {
-                dispatch(poblMenor(countries));
-            }
+                dispatch(poblMenor());
+        }
+     
          
     }
     return(
@@ -41,6 +43,7 @@ export default function Orden(){
             <option value= 'ORDER_ZA'> Z-A </option>
             <option value ='MAYOR_POBLACION'> Higher population </option>
             <option value ='MENOR_POBLACION'> Smaller population </option>
+            
         </select>
     )
 }

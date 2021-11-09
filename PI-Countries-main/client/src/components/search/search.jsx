@@ -18,7 +18,7 @@ export default function Search(){
         }
     };
     return(
-        <form  onSubmit={(e) => handleSubmit(e)}>
+        <form  >
         <input 
             type="text"
             placeholder="Search your countrie.."

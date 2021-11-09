@@ -37,14 +37,13 @@ export const Home = () => {
         {
          currentCountries?.map (e => {
              return(
-                <Card id={e.id} name={e.name} flag ={e.flag} continent ={e.continent}>
+                <Card id={e.id} name={e.name} flag ={e.flag} continent ={e.continent} poblation = {e.poblation}>
                 </Card>
          )})
          
         }
          </div>
      
-       
         </div>
         
     )

@@ -1,12 +1,10 @@
 
 export default function validater (obj, setError, err){
-    const objKey = {
-        errDuration : false
-    }
    let { name , season, difficulty, duration, idCountry} = obj
-
-    if(idCountry.length === 0)
-       return  "select a countrie"
+   console.log(name)
+   if (idCountry.length === 0){
+      return "select a countrie"
+   }
     if (name ===  ""){
       return  "name has to be a full"
     }
@@ -15,12 +13,8 @@ export default function validater (obj, setError, err){
     }
     if(difficulty === "")
    return   "select a difficulty"     
-if(duration === null){
-    // console.log(200)
-    // objKey.errDuration = true
-    return  "full duration"
+if(duration < 1){
+    return  "duration has to be positive"
 }
-// console.log(objKey) 
-// return objKey
 
 } 

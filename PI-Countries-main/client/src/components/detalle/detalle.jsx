@@ -18,6 +18,7 @@ export default function Detalle (props){
    if (countriesDetail){
     act =  countriesDetail[0]?.activities.map(a => {
                 return (<div key = {a.id}> 
+                        <h2> Activity </h2>
                         <h4> Name: {a.name} </h4>
                         <h4> Difficulty: {a.difficulty} </h4>
                         <h4> Duration: {a.duration} </h4>

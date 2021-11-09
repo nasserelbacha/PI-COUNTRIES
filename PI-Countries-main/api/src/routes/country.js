@@ -12,8 +12,7 @@ const getApiInfo = async () =>{
            name: country.name.common,
            flag: country.flags[0],
            continent: country.continents[0],
-           capital: country.capital?.[0] ,
-        //    subregion: country.subregion, 
+           capital: country.capital?.[0] , 
            area: country.area,
            poblation: country.population,
         }
@@ -41,7 +40,6 @@ const ActInfo = async() => {
 
 server.get("/countries/:id", async function (req, res){
     const id = req.params.id.toUpperCase()
-    console.log(id)
     const allCountries = await getDbInfo();
     if ( id ) {
         const idCountries = allCountries.filter( i => i.id === id )

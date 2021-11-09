@@ -15,9 +15,7 @@ export default function Post(){
   if(!paises.length){
       dispatch(getCountries())
   }
-    const [err, setError] = useState( /*{
-       errDuration: false
-    } /*/ "")
+    const [err, setError] = useState("")
 
     const [activities, setActivities] = useState({
         name: '',
@@ -54,7 +52,7 @@ function handleSelect(e) {
     }
     useEffect (() => {
         setError( validater(activities))
-    }, [])
+    }, [activities])
      
     const deleteId = id =>{
     
@@ -93,7 +91,7 @@ function handleSelect(e) {
                     </select> 
                 </label>
                 <label htmlFor="duration" onChange={handleChange}>
-                    <input type="time" placeholder="duration in hours.." name="duration" className="input"  value={activities.duration }  required /> 
+                    <input type="number" placeholder="duration in hours.." name="duration" className="input"  value={activities.duration }  required /> 
                 </label>
 
                     { <div>

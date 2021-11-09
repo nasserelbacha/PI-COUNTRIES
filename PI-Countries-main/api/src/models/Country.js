@@ -26,10 +26,6 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: 'no capital'
     },
-    // subregion: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
     area: {
       type: DataTypes.FLOAT,
       allowNull: false,

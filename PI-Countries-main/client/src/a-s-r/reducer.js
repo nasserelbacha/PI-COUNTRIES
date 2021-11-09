@@ -1,4 +1,4 @@
-import { compareAz, compareZa, MayPoblacion, MenPoblacion } from "./helpers/helpers"
+import { compareAz, compareZa, MayArea, MayPoblacion, MenPoblacion } from "./helpers/helpers"
 
 const initialState = {
  countries :[],
@@ -46,6 +46,7 @@ const rootReducer = (state= initialState, {type, payload}) => {
                     countriesApi: state.countriesApi.sort(MenPoblacion), 
                     loading: false    
             };
+         
            
             case 'LOADING':
                 return{
