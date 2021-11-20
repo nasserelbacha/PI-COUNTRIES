@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import {useDispatch} from 'react-redux'
 import { getCountriesName } from "../../a-s-r/actions";
+import './search.css'
 export default function Search(){
     const dispatch = useDispatch();
     const [name, setName] = useState('');
@@ -19,7 +20,7 @@ export default function Search(){
     };
     return(
         <form  >
-        <input 
+            <input className="search_bar"
             type="text"
             placeholder="Search your countrie.."
             autoComplete="off"

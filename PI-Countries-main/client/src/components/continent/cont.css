@@ -1,4 +1,4 @@
-.order{
+.contin{
     height: 90%;
     margin-right: 15px;
     background-color: black;
@@ -7,7 +7,7 @@
     font-size: 16px;
     cursor: pointer;
 }
-.order:hover{
+.contin:hover{
     background-color: white;
     color: black;
 }

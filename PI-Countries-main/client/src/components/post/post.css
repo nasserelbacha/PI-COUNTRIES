@@ -1,7 +1,8 @@
-  .post{border:1px solid white;
+  .post{
+  border-radius:15px ;
   height:500px;
   width:50%;
-  margin: 30px auto;
+  margin: 15px auto;
   background-color: black;
   box-shadow: 0 6rem 6rem 0 rgba(0, 0, 5, 5);
   background-position: center center;
@@ -20,11 +21,11 @@
       display:flex;
       flex-direction:column;
       color: white;
-        margin:5px 0 0 0;
-        display:flex;
-          margin-right:30px;
-          list-style:none;
-          font-weight:bold;
+      margin:5px 0 0 0;
+      display:flex;
+      margin-right:30px;
+      list-style:none;
+      font-weight:bold;
         
       }
       label{
@@ -41,23 +42,27 @@
         margin:auto;
         margin-top:10px;
         padding:10px;
-        border-radius:7px;
+        border: 1px transparent;
         outline:none;
-        background-color:white;
-        color:black;
+        background-color:black;
+        color:white;
+        font-weight:bold;
+        font-size: 16px;
         cursor: pointer;
         
       }
       
       .btn-atras{
         width:25%;
+        font-weight:bold;
         margin:auto;
+        font-size: 16px;
         margin-top:10px;
         padding:10px;
-        border-radius:7px;
+        border: 1px transparent;
         outline:none;
-        background-color:rgb(255, 255, 255);
-        color:black;
+        background-color: black;
+        color:white;
         cursor: pointer;
         }
       
@@ -67,4 +72,12 @@
 }
 .X{
   cursor: pointer;
+}
+.btn-atras:hover{
+  background-color: white;
+  color: black;
+}
+.btn-submit:hover{
+  background-color: white;
+  color: black;
 }

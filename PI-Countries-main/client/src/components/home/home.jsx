@@ -29,10 +29,7 @@ export const Home = () => {
     return(
         
         <div className="home">
-             <Paginado 
-        counPerPage = {counPerPage}
-        paginate = {paginate}
-        />
+   
         <div className="container">
         {
          currentCountries?.map (e => {
@@ -43,6 +40,10 @@ export const Home = () => {
          
         }
          </div>
+         <Paginado 
+        counPerPage = {counPerPage}
+        paginate = {paginate}
+        />
      
         </div>
         

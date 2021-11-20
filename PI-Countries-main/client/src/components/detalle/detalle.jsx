@@ -18,7 +18,7 @@ export default function Detalle (props){
    if (countriesDetail){
     act =  countriesDetail[0]?.activities.map(a => {
                 return (<div key = {a.id}> 
-                        <h2> Activity </h2>
+                        <h2 className ="card-title"> Activity </h2>
                         <h4> Name: {a.name} </h4>
                         <h4> Difficulty: {a.difficulty} </h4>
                         <h4> Duration: {a.duration} </h4>
@@ -27,10 +27,10 @@ export default function Detalle (props){
                 })
    } 
     return(
-        <div >
+        <div className="fondo" >
         {countriesDetail.map(e => (
          <div className="detail">
-         <h2  className="card-title"> Name: {e.name}</h2>
+         <h2  className="card-title"> {e.name}</h2>
          <div className='detail-img'>
               <img src={e.flag} className='imagen'  alt="" />
          </div>
@@ -52,7 +52,7 @@ export default function Detalle (props){
              act: <h5> THERE IS NOT ACTIVITIES </h5>}    
             </div>
              <div className='btn'>
-     <Link to='/home'>
+     <Link className="link" to='/home'>
          <button className='btn-back'>Back</button> 
      </Link>
      

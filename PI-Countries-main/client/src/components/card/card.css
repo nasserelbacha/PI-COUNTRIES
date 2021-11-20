@@ -4,13 +4,21 @@
     margin-top: 0px;
     padding-top: 0px;
     border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgb(212, 209, 208);
 }
 .image{
     margin-left: 25%;
     height: 100px;
    }
+.link{
+    text-decoration: none;
+}
 .name{
      text-align: center;
-     list-style:none;
      cursor: pointer;
+     color: black;
    }
+.card:hover{
+    transform: scale(1.05); 
+}

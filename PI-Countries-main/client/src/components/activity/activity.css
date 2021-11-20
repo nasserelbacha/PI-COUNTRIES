@@ -1,14 +1,13 @@
-.paginado{
-    display: flex;
-    justify-content: space-between;
+.act{
+    height: 90%;
+    margin-right: 15px;
     background-color: black;
     color: white;
-    list-style:none;
+    border-color: transparent;
+    font-size: 16px;
     cursor: pointer;
-    width: 100%;
-
 }
-.sal:hover{
+.act:hover{
     background-color: white;
     color: black;
 }

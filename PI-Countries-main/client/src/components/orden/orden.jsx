@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import {useSelector, useDispatch} from 'react-redux'
 import { orderAz, orderZa, poblMayor, poblMenor, getCountries, filterName, areaMayor } from "../../a-s-r/actions";
 import { MayArea } from "../../a-s-r/helpers/helpers";
-
+import './orden.css'
 export default function Orden(){
     const dispatch = useDispatch()
     const[currentPage, setCurrentPage] = useState(1)
@@ -37,7 +37,7 @@ export default function Orden(){
          
     }
     return(
-        <select onChange={(e) => handleChange(e)}>
+        <select className="order" onChange={(e) => handleChange(e)}>
             <option value= 'ALL'> Order by </option>
             <option value = 'ORDER_AZ'> A-Z </option>
             <option value= 'ORDER_ZA'> Z-A </option>

@@ -1,12 +1,25 @@
+
 .nav{
     background-color:black;
     display: flex;
     padding: 6px;
-    margin:6px;
     justify-content: space-between;
     background-position: center center;
     background-size:cover;
     background-attachment: fixed;
-    width: 98%;
-    height: 98%;
+    width: 99.05%;
+    height: 100%;
+}
+.add{
+    height: 90%;
+    margin-right: 15px;
+    background-color: black;
+    color: white;
+    border-color: transparent;
+    font-size: 16px;
+    cursor: pointer;
+}
+.add:hover{
+    background-color: white;
+    color: black;
 }

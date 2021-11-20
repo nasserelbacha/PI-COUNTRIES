@@ -15,7 +15,7 @@ export default function Nav() {
          <Activity></Activity>
          <Continent/>
          <Link to = '/post'>
-             <button> Add New Activity</button>
+             <button className="add"> Add New Activity</button>
          </Link>
      </div>
      </div>
